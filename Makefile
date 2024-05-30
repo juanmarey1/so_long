@@ -1,7 +1,7 @@
 NAME = so_long #NOMBRE EJECUTABLE
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g
 RM = rm -rf
 
 LIBFT_DIR = libft #NOMBRES DIRECTORIOS CON MAKEFILE

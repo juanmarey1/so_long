@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jrey-roj <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/30 21:48:05 by jrey-roj          #+#    #+#             */
+/*   Updated: 2024/05/30 21:48:07 by jrey-roj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "inc/so_long.h"
 
 void	check_parameters(int n, char **args, t_game *game)
 {
-	int     i;
-	int     len;
-	char    *map_name;
+	int		i;
+	int		len;
+	char	*map_name;
 
 	i = 0;
 	if (n != 2)
@@ -43,7 +55,8 @@ void	ft_init_game(t_game *game)
 	game->mlx_ptr = mlx_init();
 	if (!game->mlx_ptr)
 		ft_error_game(ERR_MLX_PTR, game);
-	game->win_ptr = mlx_new_window(game->mlx_ptr, game->col * SP_SIZE, game->line * SP_SIZE, "So_long");
+	game->win_ptr = mlx_new_window(game->mlx_ptr, game->col * SP_SIZE,
+			game->line * SP_SIZE, "So_long");
 	if (!game->win_ptr)
 		ft_error_game(ERR_WIN_PTR, game);
 }
@@ -57,13 +70,14 @@ void	run_game(t_game *game)
 
 int	main(int argc, char *argv[])
 {
-	t_game  game;
-	
+	t_game	game;
+
+	system("leaks -q");
 	ft_init_parameters(&game);
 	check_parameters(argc, argv, &game);
 	map_line_making(&game, argv[1]);
 	ft_init_game(&game);
-	convert_xpm_to_images(&game);
+	convert_xpm_to_images(&game, SP_SIZE);
 	run_game(&game);
 	return (0);
 }

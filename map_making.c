@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_making.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jrey-roj <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/30 21:48:20 by jrey-roj          #+#    #+#             */
+/*   Updated: 2024/05/30 21:48:21 by jrey-roj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "inc/so_long.h"
 
 void	map_check_interior(t_game *game)
@@ -11,8 +23,9 @@ void	map_check_interior(t_game *game)
 		i = 0;
 		while (game->world[j][i])
 		{
-			if ((game->world[j][i] != 'C' && game->world[j][i] != 'E') && (game->world[j][i] != 'P' &&
-				game->world[j][i] != '1') && (game->world[j][i] != '0' && game->world[j][i] != '\n'))
+			if ((game->world[j][i] != 'C' && game->world[j][i] != 'E') &&
+					(game->world[j][i] != 'P' && game->world[j][i] != '1') &&
+						(game->world[j][i] != '0' && game->world[j][i] != '\n'))
 				ft_error_map(INV_MAP_INTERIOR, game);
 			if (game->world[j][i] == 'C')
 				game->coins++;
@@ -77,7 +90,7 @@ void	check_map_size(t_game *game)
 	map_check_interior(game);
 }
 
-void    map_line_making(t_game *game, char *map_name)
+void	map_line_making(t_game *game, char *map_name)
 {
 	char	*line;
 

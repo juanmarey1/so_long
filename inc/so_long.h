@@ -59,7 +59,7 @@ typedef struct  s_game {
 void	map_line_making(t_game *game, char *map_name);
 void	map_cpy(t_game *game);
 
-void	convert_xpm_to_images(t_game *game);
+void	convert_xpm_to_images(t_game *game, int size);
 
 void	ft_error_map(char *str, t_game *game);
 void	ft_error_game(char *str, t_game *game);

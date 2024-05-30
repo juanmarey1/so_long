@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_path.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jrey-roj <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/30 21:48:27 by jrey-roj          #+#    #+#             */
+/*   Updated: 2024/05/30 21:48:29 by jrey-roj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "inc/so_long.h"
 
 void	check_path(t_game *game)
@@ -26,7 +38,6 @@ void	ft_floodfill(char **world, t_game *game, int x, int y)
 	if (world[y][x] == 'A' || world[y][x] == '1')
 		return ;
 	world[y][x] = 'A';
-
 	ft_floodfill(world, game, x + 1, y);
 	ft_floodfill(world, game, x, y + 1);
 	ft_floodfill(world, game, x - 1, y);
