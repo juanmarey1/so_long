@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jrey-roj <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/10 12:40:57 by jrey-roj          #+#    #+#             */
+/*   Updated: 2024/06/10 12:40:58 by jrey-roj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
@@ -5,11 +17,11 @@
 # include "messages.h"
 # include "../mlx/mlx.h"
 
-# define WALL_SP	"./images/wall.xpm"
-# define FLOOR_SP	"./images/floor.xpm"
-# define PLAYER_SP	"./images/player.xpm"
-# define EXIT_SP	"./images/exit.xpm"
-# define COIN_SP	"./images/coin.xpm"
+# define WALL_SP	"./textures/wall.xpm"
+# define FLOOR_SP	"./textures/floor.xpm"
+# define PLAYER_SP	"./textures/player.xpm"
+# define EXIT_SP	"./textures/exit.xpm"
+# define COIN_SP	"./textures/coin.xpm"
 
 # ifndef SP_SIZE
 #  define SP_SIZE 64
@@ -25,12 +37,14 @@
 # define RIGHT	65363
 # define ESC	65307
 
-typedef struct  s_point {
+typedef struct s_point
+{
 	int	x;
 	int	y;
 }	t_point;
 
-typedef struct  s_sprites {
+typedef struct s_sprites
+{
 	void	*wall;
 	void	*floor;
 	void	*coin;
@@ -38,7 +52,8 @@ typedef struct  s_sprites {
 	void	*exit;
 }	t_sprites;
 
-typedef struct  s_game {
+typedef struct s_game
+{
 	int			fd;
 	char		*map_line;
 	char		**world;
@@ -53,8 +68,8 @@ typedef struct  s_game {
 	void		*mlx_ptr;
 	void		*win_ptr;
 	int			moves;
+	int			win;
 }	t_game;
-
 
 void	map_line_making(t_game *game, char *map_name);
 void	map_cpy(t_game *game);
@@ -71,6 +86,5 @@ void	ft_free_double_array(char **str);
 void	ft_free_map(t_game *game);
 int		ft_destroy_game(t_game *game);
 void	ft_free_game(t_game *game);
-
 
 #endif

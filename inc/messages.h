@@ -1,14 +1,23 @@
-#ifndef ERR_MESSAGES_H
-# define ERR_MESSAGES_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   messages.h                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jrey-roj <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/10 12:40:45 by jrey-roj          #+#    #+#             */
+/*   Updated: 2024/06/10 12:40:50 by jrey-roj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef MESSAGES_H
+# define MESSAGES_H
 
 # define ARGC_ERR			"Invalid number of arguments"
 # define INVALID_MAP_NAME	"Invalid map name"
 # define INV_FILE			"Cannot open the file"
 # define EMPTY_MAP			"Map cannot be empty!"
-# define MAP_NOT_RECT		"Map has to be rectangular!"
-# define MAP_TOO_SMALL		"Map is to small!"
-# define MAP_NO_WALLS		"Map has to be fully surrounded by walls!"
-# define INV_MAP_INTERIOR	"Invalid map interior"
+# define MAP_ERROR          "Invalid map"
 # define ERR_PATH			"Map has no path in order to solve the game!"
 
 # define ERR_MLX_PTR		"Error at mlx_ptr malloc"
@@ -23,5 +32,6 @@
 # define ERR_MALLOC			"Malloc failed to allocate the memory"
 
 # define WIN_MESSAGE		"You won!"
+# define DEFEAT_MESSAGE     "You gave up..."
 
 #endif

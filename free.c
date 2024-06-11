@@ -16,12 +16,12 @@ void	ft_free_map(t_game *game)
 {
 	int	i;
 
-	if (game->map_line != NULL)
+	if (game->map_line)
 		free(game->map_line);
 	i = 0;
-	if (game->world != NULL)
+	if (game->world)
 	{
-		while (game->world[i] != NULL)
+		while (game->world[i])
 		{
 			free(game->world[i]);
 			i++;
@@ -29,7 +29,7 @@ void	ft_free_map(t_game *game)
 		free(game->world);
 	}
 	i = 0;
-	if (game->world_cpy != NULL)
+	if (game->world_cpy)
 	{
 		while (game->world_cpy[i] != NULL)
 		{
@@ -84,6 +84,8 @@ void	ft_free_game(t_game *game)
 int	ft_destroy_game(t_game *game)
 {
 	ft_free_game(game);
+	if (game->win == 0)
+		printf(DEFEAT_MESSAGE);
 	exit (0);
 	return (0);
 }

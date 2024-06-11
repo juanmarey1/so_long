@@ -48,6 +48,7 @@ void	ft_init_parameters(t_game *game)
 	game->sprites.player = NULL;
 	game->sprites.exit = NULL;
 	game->moves = 0;
+	game->win = 0;
 }
 
 void	ft_init_game(t_game *game)
@@ -72,7 +73,6 @@ int	main(int argc, char *argv[])
 {
 	t_game	game;
 
-	system("leaks -q");
 	ft_init_parameters(&game);
 	check_parameters(argc, argv, &game);
 	map_line_making(&game, argv[1]);

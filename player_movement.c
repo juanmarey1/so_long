@@ -16,6 +16,7 @@ void	ft_check_new_tile(t_game *game)
 {
 	if (game->world[game->point.y][game->point.x] == 'E' && game->coins == 0)
 	{
+		game->win++;
 		ft_printf(WIN_MESSAGE);
 		ft_destroy_game(game);
 	}

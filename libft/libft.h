@@ -76,16 +76,16 @@ t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 #  define BUFFER_SIZE 42
 # endif
 
-char	*get_next_line(int fd);
+char		*get_next_line(int fd);
 
 //Ft_printf
-int		ft_printf(const char *s, ...);
-int		ft_mayushex(unsigned int n);
-int		ft_minushex(unsigned int n);
-int		ft_ptohex(void *content);
-int		ft_putchar(char c);
-int		ft_putnbr(int n);
-int		ft_putstr(char *str);
-int		ft_putunsnbr(unsigned int n);
+int			ft_printf(const char *s, ...);
+int			ft_mayushex(unsigned int n);
+int			ft_minushex(unsigned int n);
+int			ft_ptohex(void *content);
+int			ft_putchar(char c);
+int			ft_putnbr(int n);
+int			ft_putstr(char *str);
+int			ft_putunsnbr(unsigned int n);
 
 #endif

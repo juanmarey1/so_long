@@ -21,7 +21,7 @@ LIBRARY = -L $(LIBFT_DIR) -L $(MLX_DIR) -lft -lmlx -lXext -lX11
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS) maker #Hace objetos y mlx, libft. Después lo compila y lo pasa todo a objetos creando el ejecutable so_long
+$(NAME): $(OBJECTS) maker #Hace objetos, mlx y libft. Después lo compila y lo pasa todo a objetos creando el ejecutable so_long
 	@$(CC) $(CFLAGS) $(INCLUDE) $(OBJECTS) $(LIBRARY) -o $(NAME)
 	@echo "$(NAME) created"
 
@@ -44,4 +44,4 @@ re: fclean all
 
 run: all clean
 
-.PHONY: all clean fclean re run 
+.PHONY: all clean fclean re run maker

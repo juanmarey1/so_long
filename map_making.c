@@ -26,7 +26,7 @@ void	map_check_interior(t_game *game)
 			if ((game->world[j][i] != 'C' && game->world[j][i] != 'E') &&
 					(game->world[j][i] != 'P' && game->world[j][i] != '1') &&
 						(game->world[j][i] != '0' && game->world[j][i] != '\n'))
-				ft_error_map(INV_MAP_INTERIOR, game);
+				ft_error_map(MAP_ERROR, game);
 			if (game->world[j][i] == 'C')
 				game->coins++;
 			if (game->world[j][i] == 'E')
@@ -38,7 +38,7 @@ void	map_check_interior(t_game *game)
 		j++;
 	}
 	if ((game->coins == 0 || game->exit != 1) || game->initial != 1)
-		ft_error_map(INV_MAP_INTERIOR, game);
+		ft_error_map(MAP_ERROR, game);
 }
 
 void	map_walls(t_game *game)
@@ -49,14 +49,14 @@ void	map_walls(t_game *game)
 	while (i < game->col - 1)
 	{
 		if (game->world[0][i] != '1' || game->world[(game->line) - 1][i] != '1')
-			ft_error_map(MAP_NO_WALLS, game);
+			ft_error_map(MAP_ERROR, game);
 		i++;
 	}
 	i = 0;
 	while (i < game->line)
 	{
 		if (game->world[i][0] != '1' || game->world[i][(game->col) - 1] != '1')
-			ft_error_map(MAP_NO_WALLS, game);
+			ft_error_map(MAP_ERROR, game);
 		i++;
 	}
 }
@@ -81,11 +81,11 @@ void	check_map_size(t_game *game)
 		aux = ft_strlen(game->world[game->line - 1]);
 		game->col = ft_strlen(game->world[game->line]);
 		if (game->col != aux)
-			ft_error_map(MAP_NOT_RECT, game);
+			ft_error_map(MAP_ERROR, game);
 		game->line++;
 	}
 	if (game->line <= 2 || game->col <= 2)
-		ft_error_map(MAP_TOO_SMALL, game);
+		ft_error_map(MAP_ERROR, game);
 	map_walls(game);
 	map_check_interior(game);
 }
@@ -111,6 +111,7 @@ void	map_line_making(t_game *game, char *map_name)
 	close(game->fd);
 	check_map_size(game);
 	free(game->map_line);
+	game->map_line = NULL;
 	map_cpy(game);
 	ft_free_double_array(game->world_cpy);
 }
